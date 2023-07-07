@@ -1,6 +1,3 @@
-<?php 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +11,28 @@
 </head>
 <body>
     <div id="app">
-        {{hello}}
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">TODO-LIST</h1>
+                    <ul class="text-center list-unstyled">
+                        <li v-for="(task,index) in taskList" :key="index">
+                            {{task.text}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control me-3 rounded" placeholder="New Task" @keyup.enter="addToList" v-model="taskToDo">
+                        <button @click="addToList" class="btn btn-sm btn-success rounded">New Task Todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
